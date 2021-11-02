@@ -4,28 +4,17 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
-import React, { useEffect, useState } from 'react'
-
 const Home: NextPage = () => {
 
-  const [number, setNumber] = useState<number>(0)
 
-
-  useEffect(() => {
-    console.log("Hello")
-  })
-
-  const actionGetTets = () =>{
-    console.log("actionGetTets")
-    setNumber(number + 10)
-  }
 
 
   return (
     <>
-    <Link href="/pokemon/1"><a> go to page content </a></Link>
-    <br />
-    <button onClick={() => actionGetTets()} type="button" >{number}</button>
+      <div className="container" style={{ textAlign : "center" , paddingTop : "10%"}}>
+        <p>ยินดีตอนรับสู่สมุดโปเกมอน ของ TDOT</p>
+        <Link href="/pokemon/1"><a> <button className="btn btn-success">ดูโปเกมอนของฉัน คลิก !!</button> </a></Link>
+      </div>
     </>
   )
 }

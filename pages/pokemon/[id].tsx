@@ -1,28 +1,27 @@
-import type { NextPage } from 'next'
-import { useRouter , NextRouter } from "next/router"
-import { GetServerSideProps , InferGetServerSidePropsType } from 'next'
+import { GetServerSideProps } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 type Pokemon = {
-  id : number
-  name : string
+  id: number
+  name: string
 }
 
-
-const   Blog : NextPage<Pokemon> = ( data ) => {
-
-  console.log(data)
-
+function Blog(data: Pokemon) {
   return (
-    <div style={{ textAlign : "center"}}>
-      <p>Name : {data.name}</p>
-      <Image
-      placeholder="empty"
-      width={`100%`}
-      height={`100%`}
-      alt="Picture" 
-      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`} />
+    <div className="container" style={{ textAlign: "center", paddingTop: "10%" }}>
+  
+        <Image
+          className="card-img-top"
+          placeholder="empty"
+          width={150}
+          height={150}
+          alt="Picture"
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${data.id}.png`} />
+        <p>{data.name}</p>
+        <br/>
+        <Link href={`/pokemon/${data.id + 1}`}><a> <button className="btn btn-success">ดูตัวต่อไป คลิก !!</button> </a></Link>
     </div>
   )
 }
